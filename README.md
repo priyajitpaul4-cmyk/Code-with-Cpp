@@ -3,6 +3,17 @@
 A premium, multi-language C++ learning platform — learn concepts, browse 35+ real
 projects, practice hands-on problems, follow a 30-day study plan and drill
 interview questions, all from a single static site (no build step required).
+---
+
+## 🌐 Live Demo
+
+<p align="center">
+  <a href="https://priyajitpaul4-cmyk.github.io/Code-with-Cpp/">
+    <img src="https://img.shields.io/badge/🌐%20Live%20Demo-Open%20C++%20Code%20Lab-blue?style=for-the-badge" alt="Live Demo">
+  </a>
+</p>
+
+---
 
 ## ✨ What's new in this redesign
 
