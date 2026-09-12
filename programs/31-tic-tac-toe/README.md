@@ -1,13 +1,16 @@
-# 31. Tic Tac Toe
+31. Tic Tac Toe
 
-**Difficulty:** Advanced
-**Concepts:** 2D Arrays, Functions, Loops
+Difficulty: Advanced
+Concepts: 2D Arrays, Functions, Loops
 
-## Description
+Description
+
 A two-player Tic Tac Toe game played on the console.
 
-## Code
+Code
+
 ```cpp
+{% raw %}
 #include <iostream>
 using namespace std;
 
@@ -59,10 +62,13 @@ int main() {
     cout << "It's a draw!" << endl;
     return 0;
 }
+{% endraw %}
 ```
 
-## Expected Output
-```
+Expected Output
+
+```text
+{% raw %}
  1 | 2 | 3
 ---|---|---
  4 | 5 | 6
@@ -71,7 +77,9 @@ int main() {
 Player X, enter cell (1-9): 5
 ...
 Player X wins!
+{% endraw %}
 ```
 
-## Explanation
-The board is a 2D char array. checkWin scans every row, column and both diagonals for three matching symbols after each move.
+Explanation
+
+The board is a 2D char array. checkWin scans every row, column and both diagonals for three matching symbols after each move. If all nine turns pass without a winner, the game ends in a draw.
