@@ -1,0 +1,136 @@
+{
+  "practiceProblems": [
+    {
+      "id": 1,
+      "title": "Student Marks Analyzer",
+      "difficulty": "Intermediate",
+      "statement": "Read marks of N students for one subject and print the highest, lowest and average mark.",
+      "input": "N = 5, marks = [78, 92, 55, 88, 67]",
+      "output": "Highest: 92\nLowest: 55\nAverage: 76",
+      "hint": "Track a running max, min and sum in a single loop over the array.",
+      "solution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cout << \"Number of students: \";\n    cin >> n;\n    int marks[100], highest = 0, lowest = 100, sum = 0;\n\n    for (int i = 0; i < n; i++) {\n        cin >> marks[i];\n        sum += marks[i];\n        if (marks[i] > highest) highest = marks[i];\n        if (marks[i] < lowest) lowest = marks[i];\n    }\n\n    cout << \"Highest: \" << highest << endl;\n    cout << \"Lowest: \" << lowest << endl;\n    cout << \"Average: \" << (sum / n) << endl;\n    return 0;\n}",
+      "category": "General"
+    },
+    {
+      "id": 2,
+      "title": "Number Frequency Counter",
+      "difficulty": "Intermediate",
+      "statement": "Given an array of integers, count how many times each distinct number appears.",
+      "input": "[4, 2, 4, 5, 2, 4]",
+      "output": "4 -> 3\n2 -> 2\n5 -> 1",
+      "hint": "A std::map<int,int> can accumulate counts keyed by the number itself.",
+      "solution": "#include <iostream>\n#include <map>\nusing namespace std;\n\nint main() {\n    int n;\n    cout << \"Array size: \";\n    cin >> n;\n    map<int, int> freq;\n\n    for (int i = 0; i < n; i++) {\n        int x; cin >> x;\n        freq[x]++;\n    }\n\n    for (auto &p : freq)\n        cout << p.first << \" -> \" << p.second << endl;\n\n    return 0;\n}",
+      "category": "General"
+    },
+    {
+      "id": 3,
+      "title": "Array Statistics",
+      "difficulty": "Intermediate",
+      "statement": "Compute the sum, average, maximum and minimum of an array without using STL algorithms.",
+      "input": "[12, 45, 3, 67, 21]",
+      "output": "Sum: 148\nAverage: 29.6\nMax: 67\nMin: 3",
+      "hint": "Initialize max and min to the first element, then update them while scanning.",
+      "solution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cout << \"Array size: \";\n    cin >> n;\n    double arr[100], sum = 0, mx, mn;\n\n    cin >> arr[0];\n    mx = mn = arr[0];\n    sum = arr[0];\n\n    for (int i = 1; i < n; i++) {\n        cin >> arr[i];\n        sum += arr[i];\n        if (arr[i] > mx) mx = arr[i];\n        if (arr[i] < mn) mn = arr[i];\n    }\n\n    cout << \"Sum: \" << sum << endl;\n    cout << \"Average: \" << (sum / n) << endl;\n    cout << \"Max: \" << mx << endl;\n    cout << \"Min: \" << mn << endl;\n    return 0;\n}",
+      "category": "General"
+    },
+    {
+      "id": 4,
+      "title": "String Analyzer",
+      "difficulty": "Intermediate",
+      "statement": "Given a sentence, count vowels, consonants, digits and spaces.",
+      "input": "\"C++ is fun 2 learn\"",
+      "output": "Vowels: 4\nConsonants: 7\nDigits: 1\nSpaces: 4",
+      "hint": "Loop through each character and classify it with isalpha, isdigit and a vowel check.",
+      "solution": "#include <iostream>\n#include <string>\n#include <cctype>\nusing namespace std;\n\nint main() {\n    string text;\n    cout << \"Enter a sentence: \";\n    getline(cin, text);\n\n    int vowels = 0, consonants = 0, digits = 0, spaces = 0;\n    string vowelSet = \"aeiouAEIOU\";\n\n    for (char c : text) {\n        if (isspace(c)) spaces++;\n        else if (isdigit(c)) digits++;\n        else if (isalpha(c)) {\n            if (vowelSet.find(c) != string::npos) vowels++;\n            else consonants++;\n        }\n    }\n\n    cout << \"Vowels: \" << vowels << endl;\n    cout << \"Consonants: \" << consonants << endl;\n    cout << \"Digits: \" << digits << endl;\n    cout << \"Spaces: \" << spaces << endl;\n    return 0;\n}",
+      "category": "General"
+    },
+    {
+      "id": 5,
+      "title": "Matrix Calculator",
+      "difficulty": "Advanced",
+      "statement": "Read two 2x2 matrices and print their sum and product.",
+      "input": "A = [[1,2],[3,4]], B = [[5,6],[7,8]]",
+      "output": "Sum:\n6 8\n10 12\nProduct:\n19 22\n43 50",
+      "hint": "Matrix multiplication: result[i][j] is the dot product of row i of A and column j of B.",
+      "solution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int a[2][2], b[2][2], sum[2][2], prod[2][2] = {0};\n\n    cout << \"Enter matrix A (4 numbers): \";\n    for (int i = 0; i < 2; i++) for (int j = 0; j < 2; j++) cin >> a[i][j];\n\n    cout << \"Enter matrix B (4 numbers): \";\n    for (int i = 0; i < 2; i++) for (int j = 0; j < 2; j++) cin >> b[i][j];\n\n    cout << \"Sum:\" << endl;\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) {\n            sum[i][j] = a[i][j] + b[i][j];\n            cout << sum[i][j] << \" \";\n        }\n        cout << endl;\n    }\n\n    cout << \"Product:\" << endl;\n    for (int i = 0; i < 2; i++)\n        for (int j = 0; j < 2; j++)\n            for (int k = 0; k < 2; k++)\n                prod[i][j] += a[i][k] * b[k][j];\n\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) cout << prod[i][j] << \" \";\n        cout << endl;\n    }\n    return 0;\n}",
+      "category": "General"
+    },
+    {
+      "id": 6,
+      "title": "Bank Transaction Analyzer",
+      "difficulty": "Advanced",
+      "statement": "Given a list of deposits (positive) and withdrawals (negative), compute the final balance and the largest single transaction.",
+      "input": "start = 1000, transactions = [500, -200, -800, 300]",
+      "output": "Final balance: 800\nLargest transaction: 500",
+      "hint": "Track balance by adding each transaction, and largest by comparing absolute values.",
+      "solution": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    double balance;\n    int n;\n    cout << \"Starting balance: \";\n    cin >> balance;\n    cout << \"Number of transactions: \";\n    cin >> n;\n\n    double largest = 0;\n    for (int i = 0; i < n; i++) {\n        double t;\n        cin >> t;\n        balance += t;\n        if (fabs(t) > fabs(largest)) largest = t;\n    }\n\n    cout << \"Final balance: \" << balance << endl;\n    cout << \"Largest transaction: \" << largest << endl;\n    return 0;\n}",
+      "category": "General"
+    },
+    {
+      "id": 7,
+      "title": "Employee Salary Calculator",
+      "difficulty": "Intermediate",
+      "statement": "Calculate net salary for multiple employees given basic pay, allowances and deductions.",
+      "input": "basic = 30000, allowance = 4000, deduction = 2500",
+      "output": "Net Salary: 31500",
+      "hint": "Net = basic + allowances - deductions. Repeat for each employee using a loop.",
+      "solution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cout << \"Number of employees: \";\n    cin >> n;\n\n    for (int i = 0; i < n; i++) {\n        double basic, allowance, deduction;\n        cout << \"Basic, Allowance, Deduction: \";\n        cin >> basic >> allowance >> deduction;\n        double net = basic + allowance - deduction;\n        cout << \"Net Salary: \" << net << endl;\n    }\n    return 0;\n}",
+      "category": "General"
+    },
+    {
+      "id": 8,
+      "title": "Inventory Calculator",
+      "difficulty": "Intermediate",
+      "statement": "Given item quantities and unit prices, calculate the total value of inventory.",
+      "input": "items = [(10, 25.5), (5, 100), (20, 8)]",
+      "output": "Total inventory value: 915",
+      "hint": "Multiply quantity by price for each item and accumulate the total.",
+      "solution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cout << \"Number of items: \";\n    cin >> n;\n    double total = 0;\n\n    for (int i = 0; i < n; i++) {\n        double qty, price;\n        cout << \"Quantity, Price: \";\n        cin >> qty >> price;\n        total += qty * price;\n    }\n\n    cout << \"Total inventory value: \" << total << endl;\n    return 0;\n}",
+      "category": "General"
+    },
+    {
+      "id": 9,
+      "title": "Contact Search System",
+      "difficulty": "Intermediate",
+      "statement": "Store a list of names and phone numbers, then search for a name using binary search after sorting.",
+      "input": "names = [Zoya, Amit, Priya], search = Amit",
+      "output": "Found: Amit",
+      "hint": "Sort the array first, then apply binary search since it requires sorted data.",
+      "solution": "#include <iostream>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    int n;\n    cout << \"Number of contacts: \";\n    cin >> n;\n    string names[100];\n    for (int i = 0; i < n; i++) cin >> names[i];\n\n    sort(names, names + n);\n\n    string query;\n    cout << \"Search for: \";\n    cin >> query;\n\n    if (binary_search(names, names + n, query))\n        cout << \"Found: \" << query << endl;\n    else\n        cout << \"Not found.\" << endl;\n\n    return 0;\n}",
+      "category": "General"
+    },
+    {
+      "id": 10,
+      "title": "Mini Library System",
+      "difficulty": "Advanced",
+      "statement": "Track books with copies available; issuing reduces copies, returning increases them, and copies can never go negative or exceed the original stock.",
+      "input": "book = \"C++ Basics\", copies = 3, issue x2, return x1",
+      "output": "Available copies: 2",
+      "hint": "Guard both directions: don't issue if copies == 0, and don't return above the original total.",
+      "solution": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string title = \"C++ Basics\";\n    int totalCopies = 3, available = 3;\n    int choice;\n\n    do {\n        cout << \"\\nAvailable copies of \\\"\" << title << \"\\\": \" << available << endl;\n        cout << \"1. Issue 2. Return 3. Exit\\nChoice: \";\n        cin >> choice;\n\n        if (choice == 1) {\n            if (available > 0) { available--; cout << \"Issued.\\n\"; }\n            else cout << \"No copies available!\\n\";\n        } else if (choice == 2) {\n            if (available < totalCopies) { available++; cout << \"Returned.\\n\"; }\n            else cout << \"All copies already in library!\\n\";\n        }\n    } while (choice != 3);\n\n    return 0;\n}",
+      "category": "General"
+    },
+    {
+      "id": 11,
+      "title": "Palindrome Checker",
+      "difficulty": "Beginner",
+      "category": "Strings",
+      "statement": "Read a word and check whether it reads the same forwards and backwards.",
+      "input": "word = \"madam\"",
+      "output": "madam is a palindrome",
+      "hint": "Compare characters from both ends moving toward the middle.",
+      "solution": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string word;\n    cout << \"Enter a word: \";\n    cin >> word;\n    bool isPalin = true;\n    int n = word.length();\n    for (int i = 0; i < n / 2; i++) {\n        if (word[i] != word[n - 1 - i]) { isPalin = false; break; }\n    }\n    cout << word << (isPalin ? \" is a palindrome\" : \" is not a palindrome\") << endl;\n    return 0;\n}"
+    },
+    {
+      "id": 12,
+      "title": "Matrix Transpose",
+      "difficulty": "Advanced",
+      "category": "Arrays",
+      "statement": "Read an N x M matrix and print its transpose.",
+      "input": "2x3 matrix: [[1,2,3],[4,5,6]]",
+      "output": "1 4\n2 5\n3 6",
+      "hint": "The transpose swaps rows and columns: result[j][i] = matrix[i][j].",
+      "solution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n = 2, m = 3;\n    int mat[2][3] = {{1,2,3},{4,5,6}};\n    for (int j = 0; j < m; j++) {\n        for (int i = 0; i < n; i++) cout << mat[i][j] << \" \";\n        cout << endl;\n    }\n    return 0;\n}"
+    }
+  ]
+}

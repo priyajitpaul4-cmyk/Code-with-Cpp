@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="cppBlueFav" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#93c5fd"/>
+      <stop offset="55%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <polygon points="64,4 116,34 116,94 64,124 12,94 12,34" fill="url(#cppBlueFav)"/>
+  <path d="M78 30a36 36 0 1 0 0 68" fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round"/>
+  <path d="M84 58h15M91.5 50.5v15M104 58h15M111.5 50.5v15" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+</svg>

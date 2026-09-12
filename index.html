@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C++ Code — Learn, Practice, Build, Master C++</title>
+<meta name="description" content="A premium C++ learning platform with 35+ projects, a redesigned practice zone, a 30-day study plan and interview prep — in 5 languages.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand" aria-label="C++ Code Lab home">
+      <span class="cpp-logo" aria-hidden="true"><svg class="cpp-logo-svg" viewBox="0 0 128 128" aria-hidden="true">
+  <defs>
+    <linearGradient id="cppBlueA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#93c5fd"/>
+      <stop offset="55%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <polygon points="64,4 116,34 116,94 64,124 12,94 12,34" fill="url(#cppBlueA)"/>
+  <polygon points="12,34 64,64 116,34 116,94 64,124 12,94" fill="#1d4ed8" opacity=".42"/>
+  <path d="M78 30a36 36 0 1 0 0 68" fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round"/>
+  <path d="M84 58h15M91.5 50.5v15M104 58h15M111.5 50.5v15" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+</svg></span>
+      <span class="brand-text">
+        <span class="brand-title">C++ CODE </span>
+        <span class="brand-sub" data-i18n="tagline">Learn • Practice • Build • Master C++</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <div class="nav-item">
+        <a href="#home" class="nav-link active" data-i18n="nav_home">Home</a>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a href="#whatis" class="nav-link">
+          <span data-i18n="nav_learn">Learn C++</span>
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="#whatis"><span data-i18n="nav_whatis">What is C++?</span><small>The language, in plain words</small></a>
+          <a href="#why"><span data-i18n="why_title">Why Learn C++?</span><small>Careers &amp; superpowers</small></a>
+          <a href="#roadmap"><span data-i18n="roadmap_title">Learning Roadmap</span><small>16-stage path to mastery</small></a>
+        </div>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a href="#projects" class="nav-link">
+          <span data-i18n="nav_programs">Programs</span>
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="#projects"><span data-i18n="projects_title">35+ Projects</span><small>Beginner to advanced code</small></a>
+          <a href="#practice"><span data-i18n="nav_practice">Practice</span><small>Solve, then reveal</small></a>
+          <a href="#plan"><span data-i18n="nav_plan">30-Day Plan</span><small>Daily learning tracker</small></a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#interview" class="nav-link" data-i18n="interview_title">Interview Prep</a>
+      </div>
+      <div class="nav-item">
+        <a href="#resources" class="nav-link" data-i18n="nav_resources">Resources</a>
+      </div>
+      <div class="nav-item">
+        <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
+      </div>
+
+      <a href="#plan" class="btn btn-primary btn-sm nav-cta" data-i18n="btn_start">Start Learning</a>
+    </nav>
+
+    <div class="nav-controls">
+      <div class="lang-select">
+        <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
+          <span id="langLabel">EN</span>
+        </button>
+        <ul class="lang-menu" id="langMenu" role="menu"></ul>
+      </div>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark or light mode" aria-pressed="false">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg> Welcome to C++ Code </span>
+      <h1 class="hero-title">
+        <span data-i18n="hero_title_1">Master C++.</span><br>
+        <span class="grad-text">Build Powerful <span class="rotator-wrap"><span id="heroRotator">Programs</span></span>.</span>
+      </h1>
+      <p class="hero-subtitle" data-i18n="hero_subtitle">Learn C++ from fundamentals to problem solving.</p>
+      <div class="animated-line" aria-label="Learning journey"><span>Learn</span><b>•</b><span>Code</span><b>•</b><span>Build</span><b>•</b><span>Master</span><i>C++</i></div>
+      <div class="hero-actions">
+        <a href="#roadmap" class="btn btn-primary" data-i18n="btn_start">Start Learning</a>
+        <a href="#projects" class="btn btn-ghost" data-i18n="btn_explore">Explore Projects</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span>35+ Real Projects</span></div>
+        <div class="stat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Practice Problems</span></div>
+        <div class="stat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>30-Day Study Plan</span></div>
+        <div class="stat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>5 Languages Supported</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-logo-orbit"><svg class="cpp-logo-svg" viewBox="0 0 128 128" aria-hidden="true">
+  <defs>
+    <linearGradient id="cppBlueB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#93c5fd"/>
+      <stop offset="55%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <polygon points="64,4 116,34 116,94 64,124 12,94 12,34" fill="url(#cppBlueB)"/>
+  <polygon points="12,34 64,64 116,34 116,94 64,124 12,94" fill="#1d4ed8" opacity=".42"/>
+  <path d="M78 30a36 36 0 1 0 0 68" fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round"/>
+  <path d="M84 58h15M91.5 50.5v15M104 58h15M111.5 50.5v15" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+</svg><span>C++</span></div>
+      <div class="editor-window">
+        <div class="editor-bar">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="editor-tab">main.cpp</span>
+        </div>
+        <pre class="editor-code" id="typedCode"><code></code></pre>
+      </div>
+      <div class="float-badge badge-1">Better Code</div>
+      <div class="float-badge badge-2">Bigger Dreams</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT IS C++ (new top section) ================= -->
+<section class="section whatis-section" id="whatis">
+  <div class="section-head">
+    <span class="kicker" data-i18n="whatis_badge">Get to know the language</span>
+    <h2 data-i18n="whatis_title">What is C++?</h2>
+  </div>
+  <div class="whatis-grid">
+    <div class="whatis-copy">
+      <p class="lead" data-i18n="whatis_lead">C++ is a general-purpose, compiled programming language that blends low-level control over memory and hardware with high-level tools like classes, templates and the Standard Template Library.</p>
+      <p data-i18n="whatis_p1">Created by Bjarne Stroustrup in 1979 as an extension of C, it added object-oriented and generic programming while keeping C's raw performance.</p>
+      <p data-i18n="whatis_p2">Today it powers browsers, operating systems, game engines, databases and trading systems — anywhere speed and control both matter.</p>
+      <a href="#why" class="btn btn-outline btn-sm" style="margin-top:18px" data-i18n="whatis_cta">See Why It's Worth Learning</a>
+      <div class="whatis-stats" id="whatIsStats"></div>
+    </div>
+    <div class="whatis-visual">
+      <div class="whatis-badge-ring">
+        <svg viewBox="0 0 128 128" aria-hidden="true">
+          <defs>
+            <linearGradient id="cppBlueC" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#93c5fd"/>
+              <stop offset="55%" stop-color="#2563eb"/>
+              <stop offset="100%" stop-color="#1d4ed8"/>
+            </linearGradient>
+          </defs>
+          <polygon points="64,4 116,34 116,94 64,124 12,94 12,34" fill="url(#cppBlueC)"/>
+          <path d="M78 30a36 36 0 1 0 0 68" fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round"/>
+          <path d="M84 58h15M91.5 50.5v15M104 58h15M111.5 50.5v15" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <span class="orbit-chip c1">OOP</span>
+        <span class="orbit-chip c2">STL</span>
+        <span class="orbit-chip c3">Templates</span>
+        <span class="orbit-chip c4">Pointers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY LEARN ================= -->
+<section class="section" id="why">
+  <div class="section-head">
+    <span class="kicker" data-i18n="why_badge">Career-Ready Skills</span>
+    <h2 data-i18n="why_title">Why Learn C++?</h2>
+    <p data-i18n="why_sub">C++ is powerful, versatile and remains one of the most in-demand programming languages in the world. Here's why you should learn it:</p>
+  </div>
+  <div class="why-grid" id="whyGrid"></div>
+</section>
+
+<!-- ================= ROADMAP ================= -->
+<section class="section" id="roadmap">
+  <div class="section-head">
+    <h2 data-i18n="roadmap_title">C++ Learning Roadmap</h2>
+    <p data-i18n="roadmap_sub">Follow this step-by-step path to become a C++ pro.</p>
+  </div>
+  <div class="roadmap-track" id="roadmapTrack"></div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="section" id="projects">
+  <div class="section-head">
+    <h2 data-i18n="projects_title">35+ C++ Projects</h2>
+    <p data-i18n="projects_sub">Build real-world projects and strengthen your concepts with hands-on coding.</p>
+  </div>
+
+  <div class="projects-toolbar">
+    <div class="filter-group" id="filterGroup" role="tablist">
+      <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+      <button class="filter-btn" data-filter="Beginner" data-i18n="filter_beginner">Beginner</button>
+      <button class="filter-btn" data-filter="Intermediate" data-i18n="filter_intermediate">Intermediate</button>
+      <button class="filter-btn" data-filter="Advanced" data-i18n="filter_advanced">Advanced</button>
+    </div>
+    <div class="search-box">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="projectSearch" data-i18n-ph="search_placeholder" placeholder="Search C++ projects...">
+    </div>
+  </div>
+
+  <div class="projects-grid" id="projectsGrid"></div>
+
+  <div class="projects-actions">
+    <button class="btn btn-primary" id="showAllBtn" data-i18n="show_all">Show All Projects</button>
+    <button class="btn btn-ghost hidden" id="showLessBtn" data-i18n="show_less">Show Less</button>
+  </div>
+</section>
+
+<!-- ================= PRACTICE ZONE (redesigned) ================= -->
+<section class="section" id="practice">
+  <div class="section-head">
+    <span class="kicker" data-i18n="practice_badge">Hands-on Zone</span>
+    <h2 data-i18n="practice_title">C++ Practice Zone</h2>
+    <p data-i18n="practice_sub">Sharpen your skills with hands-on problems. Try to solve before revealing the answer.</p>
+  </div>
+
+  <div class="practice-toolbar">
+    <div class="practice-progress">
+      <div class="practice-progress-track"><div class="practice-progress-fill" id="practiceProgressFill"></div></div>
+      <span id="practiceProgressLabel">0 / 0 solved</span>
+    </div>
+    <div id="practiceFilterBar" role="tablist" aria-label="Filter practice by difficulty"></div>
+  </div>
+
+  <div class="practice-list" id="practiceList"></div>
+  <div class="practice-actions">
+    <button class="btn btn-primary" id="showAllPracticeBtn" data-i18n="show_all">Show All Projects</button>
+    <button class="btn btn-ghost hidden" id="showLessPracticeBtn" data-i18n="show_less">Show Less</button>
+  </div>
+</section>
+
+<!-- ================= 30-DAY PLAN ================= -->
+<section class="section" id="plan">
+  <div class="section-head">
+    <h2 data-i18n="plan_title">30-Day C++ Study Plan</h2>
+    <p data-i18n="plan_sub">A daily roadmap from your first program to a complete project.</p>
+  </div>
+
+  <div class="plan-dashboard">
+    <div class="progress-ring-card">
+      <svg class="progress-ring" width="140" height="140" viewBox="0 0 140 140">
+        <circle cx="70" cy="70" r="60" class="ring-bg"/>
+        <circle cx="70" cy="70" r="60" class="ring-fill" id="ringFill"/>
+      </svg>
+      <span class="ring-percent" id="ringPercent">0%</span>
+    </div>
+    <div class="plan-metrics">
+      <div class="metric"><strong id="daysCompleted">0 / 30</strong><span data-i18n="days_completed">Days Completed</span></div>
+      <div class="metric"><strong id="modulesCompleted">0 / 16</strong><span data-i18n="modules_completed">Modules Completed</span></div>
+      <button class="btn btn-primary btn-sm" id="continueBtn">Continue Learning →</button>
+    </div>
+  </div>
+
+  <!-- ================= MAGIC TRICKS ================= -->
+  <section class="cwcpp-feature-section cwcpp-magic-section" aria-labelledby="magicTitle">
+    <div class="cwcpp-feature-head">
+      <div>
+        <span class="cwcpp-kicker">✦ SECRET TECHNIQUES</span>
+        <h2 id="magicTitle">🪄 C++ Magic Tricks</h2>
+        <p>Little tricks that make your C++ programs smarter.</p>
+      </div>
+      <div class="cwcpp-feature-icon">🪄</div>
+    </div>
+
+    <article class="cwcpp-trick-card">
+      <div class="cwcpp-card-top">
+        <span id="magicNumber" class="cwcpp-number">TRICK 01</span>
+        <span class="cwcpp-badge">C++ SECRET</span>
+      </div>
+      <div class="cwcpp-magic-orb">⚡</div>
+      <h3 id="magicTitleText">Loading trick...</h3>
+      <p id="magicTeaser">Discover a useful C++ trick.</p>
+
+      <div class="cwcpp-code-box">
+        <pre><code id="magicCode"></code></pre>
+        <button class="cwcpp-copy-btn" id="magicCopyBtn" type="button">▣ Copy</button>
+      </div>
+
+      <div class="cwcpp-reveal" id="magicReveal">
+        <strong>Why it works</strong>
+        <p id="magicExplain"></p>
+      </div>
+
+      <button class="btn btn-outline btn-sm cwcpp-next-btn" id="magicBtn" type="button">
+        ✨ Reveal Another Trick
+      </button>
+    </article>
+
+    <div class="cwcpp-dots" id="magicDots" aria-label="Magic trick progress"></div>
+  </section>
+
+  <!-- ================= FUN FACTS ================= -->
+  <section class="cwcpp-feature-section cwcpp-facts-section" aria-labelledby="factsTitle">
+    <div class="cwcpp-feature-head">
+      <div>
+        <span class="cwcpp-kicker">✦ DID YOU KNOW? ✦</span>
+        <h2 id="factsTitle">⚡ Fun Facts About C++</h2>
+        <p>Discover something interesting about the C++ programming language.</p>
+      </div>
+      <div class="cwcpp-counter" id="factCounter">01 / 15</div>
+    </div>
+
+    <article class="cwcpp-fact-card">
+      <div class="cwcpp-fact-icon">💡</div>
+      <div class="cwcpp-fact-content">
+        <span class="cwcpp-fact-label">FUN FACT</span>
+        <h3 id="funFactTitle">C++ Fact</h3>
+        <p id="funFactText">Loading a fun fact...</p>
+      </div>
+      <button class="btn btn-outline btn-sm cwcpp-next-fact" id="factBtn" type="button">
+        ▣ Another Fact
+      </button>
+    </article>
+
+    <div class="cwcpp-dots" id="factDots" aria-label="Fun fact progress"></div>
+  </section>
+
+  <div class="plan-list" id="planList"></div>
+  <div class="plan-footer-actions">
+    <button class="btn btn-ghost" id="resetProgressBtn" data-i18n="reset_progress">Reset Progress</button>
+  </div>
+</section>
+
+<!-- ================= INTERVIEW ================= -->
+<section class="section" id="interview">
+  <div class="section-head">
+    <h2 data-i18n="interview_title">C++ Interview Questions</h2>
+    <p data-i18n="interview_sub">Master the most commonly asked C++ interview questions.</p>
+  </div>
+  <div class="interview-list" id="interviewList"></div>
+</section>
+
+<!-- ================= RESOURCES ================= -->
+<section class="section" id="resources">
+  <div class="section-head">
+    <h2 data-i18n="resources_title">Resources</h2>
+  </div>
+  <div class="resources-grid" id="resourcesGrid"></div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section about-section" id="about">
+  <div class="about-grid">
+    <div class="avatar-card" aria-label="Cartoon avatar of Priyajit Paul">
+      <div class="avatar-glow"></div>
+      <svg class="avatar-svg" viewBox="0 0 300 300" role="img" aria-label="Professional cartoon avatar">
+        <defs>
+          <linearGradient id="avatarBg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#173756"/>
+            <stop offset="100%" stop-color="#07111f"/>
+          </linearGradient>
+          <linearGradient id="shirt" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#60a5fa"/>
+            <stop offset="100%" stop-color="#1d4ed8"/>
+          </linearGradient>
+        </defs>
+        <circle cx="150" cy="150" r="142" fill="url(#avatarBg)" stroke="#60a5fa" stroke-width="3"/>
+        <circle cx="150" cy="150" r="124" fill="#07111f" opacity=".42"/>
+        <path d="M69 268c7-47 39-72 81-72s74 25 81 72" fill="url(#shirt)"/>
+        <path d="M113 214c9 12 23 19 37 19s28-7 37-19v-26h-74z" fill="#3b82f6"/>
+        <path d="M126 178v39c8 12 17 17 24 17s16-5 24-17v-39z" fill="#2563eb"/>
+        <circle cx="96" cy="133" r="17" fill="#c98b5c"/>
+        <circle cx="204" cy="133" r="17" fill="#c98b5c"/>
+        <ellipse cx="150" cy="133" rx="56" ry="68" fill="#dba277"/>
+        <path d="M96 123c-4-39 18-73 54-76 39-3 61 29 55 73-12-8-19-18-24-31-17 17-42 27-73 24-3 4-7 7-12 10z" fill="#17100c"/>
+        <path d="M106 88c15-24 47-33 70-20 8 5 15 12 20 23-27-12-57-10-90-3z" fill="#23150e"/>
+        <path d="M119 127q12-8 23 0" fill="none" stroke="#5b3424" stroke-width="5" stroke-linecap="round"/>
+        <path d="M158 127q12-8 23 0" fill="none" stroke="#5b3424" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="131" cy="139" rx="5" ry="6" fill="#20140e"/>
+        <ellipse cx="169" cy="139" rx="5" ry="6" fill="#20140e"/>
+        <circle cx="132" cy="137" r="1.5" fill="#fff"/>
+        <circle cx="170" cy="137" r="1.5" fill="#fff"/>
+        <path d="M150 140l-7 22q7 5 14 0" fill="none" stroke="#8e563d" stroke-width="3" stroke-linecap="round"/>
+        <path d="M132 173q18 14 36 0" fill="none" stroke="#5d2d20" stroke-width="4" stroke-linecap="round"/>
+        <path d="M104 247h92l12 19h-116z" fill="#0c1c30" stroke="#60a5fa" stroke-width="3"/>
+        <rect x="117" y="233" width="66" height="42" rx="5" fill="#07111f" stroke="#60a5fa" stroke-width="3"/>
+        <text x="150" y="260" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#60a5fa">C++</text>
+      </svg>
+      <span class="avatar-label">Creator • Learner • Builder</span>
+    </div>
+    <div class="about-copy">
+      <span class="about-kicker">ABOUT THE CREATOR</span>
+      <h2 data-i18n="about_title">About C++ Code </h2>
+      <p data-i18n="about_text">I am Priyajit Paul, the creator of C++ Code , a learning platform designed to make C++ programming easier to learn through practical examples, projects and problem solving.</p>
+      <p class="about-extra">Built as a practical learning space for students who want to understand concepts, write programs, practise problems and steadily build confidence in C++.</p>
+      <div class="skill-tags">
+        <span>C++</span><span>Data Structures</span><span>Algorithms</span><span>OOP</span><span>Problem Solving</span>
+      </div>
+      <div class="about-links">
+        <a class="btn btn-primary btn-sm" href="https://github.com/priyajitpaul4-cmyk" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a class="btn btn-outline btn-sm" href="https://www.linkedin.com/in/priyajit-paul-217129417/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a class="btn btn-ghost btn-sm" href="mailto:priyajitpaul4@gmail.com">Email Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= CODE MODAL ================= -->
+<div class="modal-overlay hidden" id="codeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 id="modalTitle"></h3>
+      <button class="modal-close" id="modalClose" aria-label="Close" data-i18n="close">✕</button>
+    </div>
+    <div class="modal-meta" id="modalMeta"></div>
+    <p id="modalDescription"></p>
+    <div class="modal-code-wrap">
+      <div class="modal-code-bar">
+        <span>C++</span>
+        <button class="copy-btn" id="copyBtn" data-i18n="copy_code">Copy Code</button>
+      </div>
+      <pre class="modal-code"><code id="modalCode"></code></pre>
+    </div>
+    <h4 data-i18n="expected_output">Expected Output</h4>
+    <pre class="modal-output" id="modalOutput"></pre>
+    <p class="modal-explain" id="modalExplain"></p>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand">
+        <span class="cpp-logo cpp-logo-small" aria-hidden="true"><svg class="cpp-logo-svg" viewBox="0 0 128 128" aria-hidden="true">
+  <defs>
+    <linearGradient id="cppBlueD" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#93c5fd"/>
+      <stop offset="55%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <polygon points="64,4 116,34 116,94 64,124 12,94 12,34" fill="url(#cppBlueD)"/>
+  <path d="M78 30a36 36 0 1 0 0 68" fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round"/>
+  <path d="M84 58h15M91.5 50.5v15M104 58h15M111.5 50.5v15" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+</svg></span>
+        <span class="brand-title">C++ CODE </span>
+      </div>
+      <p data-i18n="tagline">Learn • Practice • Build • Master C++</p>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-i18n="footer_learn">Learn</h4>
+      <a href="#whatis" data-i18n="nav_whatis">What is C++?</a>
+      <a href="#roadmap">C++ Roadmap</a>
+      <a href="#roadmap">OOP &amp; STL</a>
+      <a href="#interview">Interview Prep</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_projects">Projects</h4>
+      <a href="#projects">All Projects</a>
+      <a href="#practice">Practice Zone</a>
+      <a href="#plan">30-Day Plan</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_connect">Connect</h4>
+      <a href="https://github.com/priyajitpaul4-cmyk" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/priyajit-paul-217129417/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:priyajitpaul4@gmail.com">Email</a>
+      <a href="https://github.com/priyajitpaul4-cmyk" target="_blank" rel="noopener noreferrer">Portfolio / Projects</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_quick">Quick Links</h4>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#resources">Resources</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 C++ Code </span>
+    <span data-i18n="footer_tagline">Keep coding, keep building!</span>
+  </div>
+</footer>
+
+<script src="js/language.js"></script>
+<script src="js/programs.js"></script>
+<script src="js/practice.js"></script>
+<script src="js/study-plan.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

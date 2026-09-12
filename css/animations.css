@@ -1,0 +1,62 @@
+/* =========================================================
+   C++ CODE LAB — css/animations.css
+   Keyframes + animation-driven utility classes used across the site.
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- generic keyframes ---------- */
+@keyframes heroIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes shine { to { background-position: 200% center; } }
+@keyframes floatLogo { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-10px) rotate(2deg); } }
+@keyframes pulseText { 0%, 100% { opacity: .55; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-2px); } }
+@keyframes blinkCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes orbitSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes ribbonPop { 0% { transform: scale(.8) translateY(4px); opacity: 0; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
+
+/* ---------- hero entrance ---------- */
+.hero-title { animation: heroIn .8s ease both; }
+.grad-text { animation: shine 4s linear infinite; }
+.hero-subtitle, .hero-actions, .hero-stats { animation: fadeUp .8s .15s ease both; }
+.animated-line { animation: fadeUp 1s .35s both; }
+.animated-line span { animation: pulseText 2.8s infinite; }
+.animated-line span:nth-of-type(2) { animation-delay: .35s; }
+.animated-line span:nth-of-type(3) { animation-delay: .7s; }
+.animated-line span:nth-of-type(4) { animation-delay: 1.05s; }
+.hero-logo-orbit { animation: floatLogo 5s ease-in-out infinite; }
+
+/* typing cursor after the hero code finishes */
+.editor-code:not(.done)::after {
+  content: "▍";
+  color: var(--cyan);
+  animation: blinkCursor 1s step-end infinite;
+}
+
+/* rotating word in the hero title */
+.whatis-badge-ring::before {
+  content: "";
+  position: absolute; inset: -1px; border-radius: 50%;
+  border: 1px dashed var(--border-strong);
+  animation: orbitSpin 40s linear infinite;
+}
+.why-ribbon { animation: ribbonPop .4s ease both; }
+
+/* magic trick reveal */
+.magic-reveal { animation: reveal .4s ease; }
+
+/* ---------- scroll-reveal engine (driven by IntersectionObserver in script.js) ---------- */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .55s ease var(--delay, 0s), transform .55s ease var(--delay, 0s);
+}
+.reveal-item.in-view { opacity: 1; transform: none; }

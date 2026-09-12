@@ -1,0 +1,104 @@
+{
+  "interviewQuestions": [
+    {
+      "id": 1,
+      "question": "What is C++?",
+      "answer": "C++ is a general-purpose, compiled programming language created by Bjarne Stroustrup as an extension of C, adding object-oriented and generic programming features while keeping C's performance and low-level control."
+    },
+    {
+      "id": 2,
+      "question": "What is the difference between C and C++?",
+      "answer": "C is a procedural language with no built-in support for classes or objects. C++ extends C with OOP concepts (classes, inheritance, polymorphism), templates, exception handling and a richer standard library, while remaining largely backward compatible with C."
+    },
+    {
+      "id": 3,
+      "question": "What is Object-Oriented Programming (OOP)?",
+      "answer": "OOP is a programming paradigm that organizes code around objects, which bundle data (attributes) and behaviour (methods) together, built on four pillars: encapsulation, abstraction, inheritance and polymorphism."
+    },
+    {
+      "id": 4,
+      "question": "What is a class?",
+      "answer": "A class is a user-defined blueprint or template that defines the data members and member functions common to all objects created from it."
+    },
+    {
+      "id": 5,
+      "question": "What is an object?",
+      "answer": "An object is a concrete instance of a class, occupying its own memory and holding actual values for the class's data members."
+    },
+    {
+      "id": 6,
+      "question": "What is inheritance?",
+      "answer": "Inheritance lets a derived class acquire the properties and behaviours of a base class, enabling code reuse and the creation of hierarchical relationships between classes."
+    },
+    {
+      "id": 7,
+      "question": "What is polymorphism?",
+      "answer": "Polymorphism means 'many forms' — the ability for the same function name or operator to behave differently depending on the object or arguments involved, achieved via function overloading, operator overloading, or virtual functions."
+    },
+    {
+      "id": 8,
+      "question": "What is encapsulation?",
+      "answer": "Encapsulation is the bundling of data and the methods that operate on it into a single unit (a class), while restricting direct access to internal details using access specifiers like private and protected."
+    },
+    {
+      "id": 9,
+      "question": "What is abstraction?",
+      "answer": "Abstraction means exposing only the essential features of an object while hiding the internal implementation details, often achieved through abstract classes and interfaces."
+    },
+    {
+      "id": 10,
+      "question": "What is a constructor?",
+      "answer": "A constructor is a special member function with the same name as the class, automatically called when an object is created, typically used to initialize data members."
+    },
+    {
+      "id": 11,
+      "question": "What is a destructor?",
+      "answer": "A destructor is a special member function, prefixed with a tilde (~), automatically called when an object goes out of scope or is deleted, used to release resources."
+    },
+    {
+      "id": 12,
+      "question": "What is a pointer?",
+      "answer": "A pointer is a variable that stores the memory address of another variable, declared using the * symbol, and allows indirect access and manipulation of that variable."
+    },
+    {
+      "id": 13,
+      "question": "What is a reference?",
+      "answer": "A reference is an alias for an existing variable, declared using &, that must be initialized when created and cannot be reseated to refer to a different variable afterward."
+    },
+    {
+      "id": 14,
+      "question": "What is the STL?",
+      "answer": "The Standard Template Library (STL) is a collection of template-based classes and functions in C++ providing common data structures (vector, list, map, set) and algorithms (sort, find, accumulate)."
+    },
+    {
+      "id": 15,
+      "question": "What is a vector in C++?",
+      "answer": "std::vector is a dynamic array from the STL that can grow or shrink at runtime, offering random access and automatic memory management, unlike fixed-size C-style arrays."
+    },
+    {
+      "id": 16,
+      "question": "What is a map in C++?",
+      "answer": "std::map is an STL container that stores key-value pairs in sorted order by key, implemented internally as a balanced binary search tree, giving logarithmic time lookup, insertion and deletion."
+    },
+    {
+      "id": 17,
+      "question": "What is exception handling?",
+      "answer": "Exception handling is a mechanism using try, catch and throw blocks that lets a program detect and respond to runtime errors gracefully instead of crashing."
+    },
+    {
+      "id": 18,
+      "question": "What is a virtual function?",
+      "answer": "A virtual function is a member function declared in a base class with the 'virtual' keyword, allowing a derived class to override it and enabling runtime (dynamic) polymorphism through base class pointers or references."
+    },
+    {
+      "id": 19,
+      "question": "What is function overloading?",
+      "answer": "Function overloading is defining multiple functions with the same name but different parameter lists (type, number or order), resolved by the compiler at compile time based on the arguments passed."
+    },
+    {
+      "id": 20,
+      "question": "What is function overriding?",
+      "answer": "Function overriding occurs when a derived class provides its own implementation of a virtual function that is already defined in its base class, resolved at runtime based on the actual object type."
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "studyPlan": [
+    {
+      "day": 1,
+      "topic": "Introduction to C++",
+      "task": "Read about C++ history and its uses.",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 2,
+      "topic": "Compiler & IDE Setup",
+      "task": "Install a C++ compiler (g++) and an editor. Compile Hello World.",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 3,
+      "topic": "Syntax & Structure",
+      "task": "Learn statements, semicolons, braces and comments.",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 4,
+      "topic": "Variables",
+      "task": "Declare and use int, float, double and char variables.",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 5,
+      "topic": "Data Types",
+      "task": "Study primitive types and type sizes with sizeof().",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 6,
+      "topic": "Operators",
+      "task": "Practice arithmetic, relational and logical operators.",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 7,
+      "topic": "Input/Output",
+      "task": "Master cin, cout, and formatted output with iomanip.",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 8,
+      "topic": "Conditional Statements",
+      "task": "Write programs using if, else if, else and switch.",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 9,
+      "topic": "Loops - for",
+      "task": "Solve 5 problems using the for loop.",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 10,
+      "topic": "Loops - while/do-while",
+      "task": "Solve 5 problems using while and do-while loops.",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 11,
+      "topic": "Functions Basics",
+      "task": "Write functions with parameters and return values.",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 12,
+      "topic": "Function Overloading",
+      "task": "Create overloaded functions with different parameter types.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 13,
+      "topic": "Arrays",
+      "task": "Practice 1D array traversal, searching and sorting.",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 14,
+      "topic": "Multidimensional Arrays",
+      "task": "Work with 2D arrays and simple matrix operations.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 15,
+      "topic": "Strings",
+      "task": "Use the string class: concatenation, substr, find.",
+      "difficulty": "Beginner"
+    },
+    {
+      "day": 16,
+      "topic": "Pointers Basics",
+      "task": "Understand address-of (&) and dereference (*) operators.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 17,
+      "topic": "Pointers & Arrays",
+      "task": "Explore pointer arithmetic and pointers to arrays.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 18,
+      "topic": "References",
+      "task": "Compare references with pointers and pass-by-reference.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 19,
+      "topic": "Structures",
+      "task": "Group related data using struct.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 20,
+      "topic": "Introduction to OOP",
+      "task": "Learn the four pillars of OOP with real examples.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 21,
+      "topic": "Classes & Objects",
+      "task": "Create your first class with constructors.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 22,
+      "topic": "Inheritance",
+      "task": "Build a base and derived class hierarchy.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 23,
+      "topic": "Polymorphism",
+      "task": "Use virtual functions and function overriding.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 24,
+      "topic": "STL - Vectors",
+      "task": "Practice push_back, iteration and sorting a vector.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 25,
+      "topic": "STL - Map & Set",
+      "task": "Use map and set for lookups and uniqueness.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 26,
+      "topic": "File Handling",
+      "task": "Read and write files with ifstream and ofstream.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 27,
+      "topic": "Exception Handling",
+      "task": "Use try, catch and throw to handle runtime errors.",
+      "difficulty": "Intermediate"
+    },
+    {
+      "day": 28,
+      "topic": "Data Structures Intro",
+      "task": "Implement a simple stack and queue using arrays.",
+      "difficulty": "Advanced"
+    },
+    {
+      "day": 29,
+      "topic": "Algorithms Intro",
+      "task": "Implement bubble sort and binary search from scratch.",
+      "difficulty": "Advanced"
+    },
+    {
+      "day": 30,
+      "topic": "Final Project",
+      "task": "Combine everything into one complete console application.",
+      "difficulty": "Advanced"
+    }
+  ],
+  "funFacts": [
+    "C++ was created by Bjarne Stroustrup starting in 1979 at Bell Labs.",
+    "C++ was originally called 'C with Classes' before being renamed in 1983.",
+    "The '++' in C++ is itself a C increment operator, hinting that C++ is 'one step beyond C'.",
+    "C++ is used in game engines like Unreal Engine, and in Chrome, MySQL and Adobe products.",
+    "The C++ Standard Template Library (STL) was designed by Alexander Stepanov.",
+    "C++11 was such a major update that Stroustrup joked it should feel like a new language.",
+    "NASA's Mars rovers run flight software written largely in C++.",
+    "C++ allows both low-level memory manipulation and high-level abstraction in the same language.",
+    "The first commercial release of C++ was in 1985 with the book 'The C++ Programming Language'.",
+    "Bjarne Stroustrup has said 'C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do it blows your whole leg off.'",
+    "Most competitive programming judges (Codeforces, ICPC) use C++ as the default fast language.",
+    "The C++ Standard is maintained by ISO, with new versions roughly every 3 years (C++11, 14, 17, 20, 23).",
+    "operator overloading in C++ lets you redefine how +, -, == and other symbols behave for your own types.",
+    "The keyword 'auto' in modern C++ lets the compiler deduce a variable's type automatically.",
+    "Templates in C++ enable generic programming, letting one function work with many data types."
+  ],
+  "magicTricks": [
+    {
+      "title": "Swap Two Numbers Without a Third Variable",
+      "teaser": "Swap two integer values using arithmetic operations.",
+      "code": "int a = 10, b = 20;\na = a + b;\nb = a - b;\na = a - b;",
+      "reveal": "The sum stores both values temporarily. Subtracting recovers the original values in reverse order. For production code, std::swap(a, b) is usually clearer."
+    },
+    {
+      "title": "Find the Larger Number with a Simple Trick",
+      "teaser": "Use a conditional expression to choose a value in one line.",
+      "code": "int a = 25, b = 18;\nint larger = (a > b) ? a : b;\ncout << larger;",
+      "reveal": "The ternary operator checks the condition before ?. If it is true, the first value is selected; otherwise the value after : is selected."
+    },
+    {
+      "title": "Reverse a Number Digit by Digit",
+      "teaser": "Build a reversed number without converting it to a string.",
+      "code": "int n = 1234, rev = 0;\nwhile (n > 0) {\n    rev = rev * 10 + n % 10;\n    n /= 10;\n}",
+      "reveal": "n % 10 extracts the last digit. Multiplying rev by 10 shifts its digits left, then the extracted digit is appended."
+    },
+    {
+      "title": "Count Digits with a Tiny Loop",
+      "teaser": "Count how many digits an integer contains.",
+      "code": "int n = 98765, count = 0;\nwhile (n != 0) {\n    n /= 10;\n    ++count;\n}",
+      "reveal": "Every integer division by 10 removes one decimal digit. The number of successful divisions is therefore the digit count."
+    },
+    {
+      "title": "Check Even or Odd Instantly",
+      "teaser": "One operator is enough to test the last binary bit.",
+      "code": "int n = 42;\nif ((n & 1) == 0)\n    cout << \"Even\";\nelse\n    cout << \"Odd\";",
+      "reveal": "For positive integers, the lowest binary bit is 0 for even values and 1 for odd values. The bitwise AND checks that bit."
+    },
+    {
+      "title": "Swap Using std::swap",
+      "teaser": "Let the C++ standard library handle swapping safely.",
+      "code": "#include <utility>\n\nint a = 10, b = 20;\nstd::swap(a, b);",
+      "reveal": "std::swap is the clean, general-purpose way to exchange values. It avoids arithmetic overflow and works with many C++ types."
+    },
+    {
+      "title": "Make a Constant Value Readable",
+      "teaser": "Give an important fixed value a clear name.",
+      "code": "const double PI = 3.141592653589793;\ndouble area = PI * r * r;",
+      "reveal": "const prevents accidental modification and makes the meaning of a value obvious. Named constants improve readability and maintenance."
+    },
+    {
+      "title": "Print a Line with a Newline Character",
+      "teaser": "Use a tiny escape sequence to control output.",
+      "code": "cout << \"Hello C++!\\n\";\ncout << \"Keep coding!\";",
+      "reveal": "\\n inserts a newline in the output stream. It is useful when you want precise control over where the next output begins."
+    }
+  ]
+}

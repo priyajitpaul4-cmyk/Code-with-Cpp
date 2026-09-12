@@ -1,0 +1,538 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "slug": "01-hello-world",
+      "title": "Hello, World!",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Basics",
+        "Input/Output"
+      ],
+      "description": "Your first C++ program. Learn the basics of compiling, running and printing to the console.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Hello, C++!\" << endl;\n    return 0;\n}",
+      "output": "Hello, C++!",
+      "explanation": "Every C++ program starts execution at main(). The <iostream> header brings in cout, the standard output stream, and endl flushes the stream and moves to a new line.",
+      "path": "programs/01-hello-world/main.cpp"
+    },
+    {
+      "id": 2,
+      "slug": "02-simple-calculator",
+      "title": "Simple Calculator",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Functions",
+        "Operators"
+      ],
+      "description": "Perform basic arithmetic operations (add, subtract, multiply, divide) with user input.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    double a, b;\n    char op;\n\n    cout << \"Enter first number: \";\n    cin >> a;\n    cout << \"Enter operator (+, -, *, /): \";\n    cin >> op;\n    cout << \"Enter second number: \";\n    cin >> b;\n\n    double result = 0;\n    bool valid = true;\n\n    switch (op) {\n        case '+': result = a + b; break;\n        case '-': result = a - b; break;\n        case '*': result = a * b; break;\n        case '/':\n            if (b == 0) {\n                cout << \"Error: Division by zero!\" << endl;\n                valid = false;\n            } else {\n                result = a / b;\n            }\n            break;\n        default:\n            cout << \"Invalid operator!\" << endl;\n            valid = false;\n    }\n\n    if (valid) {\n        cout << \"Result: \" << result << endl;\n    }\n    return 0;\n}",
+      "output": "Enter first number: 12\nEnter operator (+, -, *, /): *\nEnter second number: 4\nResult: 48",
+      "explanation": "A switch statement selects the operation based on the operator character. Division by zero is guarded explicitly to avoid undefined behaviour.",
+      "path": "programs/02-simple-calculator/main.cpp"
+    },
+    {
+      "id": 3,
+      "slug": "03-even-or-odd-checker",
+      "title": "Even or Odd Checker",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Conditions",
+        "Input/Output"
+      ],
+      "description": "Check whether a number is even or odd using conditions.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cout << \"Enter an integer: \";\n    cin >> n;\n\n    if (n % 2 == 0)\n        cout << n << \" is Even.\" << endl;\n    else\n        cout << n << \" is Odd.\" << endl;\n\n    return 0;\n}",
+      "output": "Enter an integer: 17\n17 is Odd.",
+      "explanation": "The modulus operator % gives the remainder of division by 2. A remainder of 0 means the number is even.",
+      "path": "programs/03-even-or-odd-checker/main.cpp"
+    },
+    {
+      "id": 4,
+      "slug": "04-largest-of-three-numbers",
+      "title": "Largest of Three Numbers",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Conditions",
+        "Variables"
+      ],
+      "description": "Find the largest number among three numbers entered by the user.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    double a, b, c;\n    cout << \"Enter three numbers: \";\n    cin >> a >> b >> c;\n\n    double largest = a;\n    if (b > largest) largest = b;\n    if (c > largest) largest = c;\n\n    cout << \"Largest number: \" << largest << endl;\n    return 0;\n}",
+      "output": "Enter three numbers: 4 19 7\nLargest number: 19",
+      "explanation": "We start by assuming the first value is the largest, then compare it against the other two, updating whenever a bigger value is found.",
+      "path": "programs/04-largest-of-three-numbers/main.cpp"
+    },
+    {
+      "id": 5,
+      "slug": "05-leap-year-checker",
+      "title": "Leap Year Checker",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Conditions",
+        "Operators"
+      ],
+      "description": "Determine whether a given year is a leap year.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int year;\n    cout << \"Enter a year: \";\n    cin >> year;\n\n    bool isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);\n\n    if (isLeap)\n        cout << year << \" is a Leap Year.\" << endl;\n    else\n        cout << year << \" is not a Leap Year.\" << endl;\n\n    return 0;\n}",
+      "output": "Enter a year: 2028\n2028 is a Leap Year.",
+      "explanation": "A year is a leap year if it is divisible by 4 but not by 100, unless it is also divisible by 400 (e.g. 2000).",
+      "path": "programs/05-leap-year-checker/main.cpp"
+    },
+    {
+      "id": 6,
+      "slug": "06-multiplication-table",
+      "title": "Multiplication Table",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Loops"
+      ],
+      "description": "Print the multiplication table of a number using a loop.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cout << \"Enter a number: \";\n    cin >> n;\n\n    for (int i = 1; i <= 10; i++) {\n        cout << n << \" x \" << i << \" = \" << (n * i) << endl;\n    }\n    return 0;\n}",
+      "output": "Enter a number: 7\n7 x 1 = 7\n7 x 2 = 14\n...\n7 x 10 = 70",
+      "explanation": "A for loop counts from 1 to 10, multiplying the chosen number by the counter each iteration.",
+      "path": "programs/06-multiplication-table/main.cpp"
+    },
+    {
+      "id": 7,
+      "slug": "07-factorial-calculator",
+      "title": "Factorial Calculator",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Loops",
+        "Functions"
+      ],
+      "description": "Calculate the factorial of a number using a loop or recursion.",
+      "code": "#include <iostream>\nusing namespace std;\n\nunsigned long long factorial(int n) {\n    unsigned long long result = 1;\n    for (int i = 2; i <= n; i++) result *= i;\n    return result;\n}\n\nint main() {\n    int n;\n    cout << \"Enter a non-negative integer: \";\n    cin >> n;\n\n    if (n < 0) {\n        cout << \"Factorial is not defined for negative numbers.\" << endl;\n    } else {\n        cout << n << \"! = \" << factorial(n) << endl;\n    }\n    return 0;\n}",
+      "output": "Enter a non-negative integer: 6\n6! = 720",
+      "explanation": "The factorial function multiplies every integer from 2 up to n. unsigned long long is used so larger factorials do not overflow as quickly.",
+      "path": "programs/07-factorial-calculator/main.cpp"
+    },
+    {
+      "id": 8,
+      "slug": "08-fibonacci-series",
+      "title": "Fibonacci Series",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Loops",
+        "Arrays"
+      ],
+      "description": "Print the Fibonacci series up to n terms.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cout << \"Enter number of terms: \";\n    cin >> n;\n\n    long long a = 0, b = 1;\n    cout << \"Fibonacci Series: \";\n    for (int i = 0; i < n; i++) {\n        cout << a << \" \";\n        long long next = a + b;\n        a = b;\n        b = next;\n    }\n    cout << endl;\n    return 0;\n}",
+      "output": "Enter number of terms: 8\nFibonacci Series: 0 1 1 2 3 5 8 13",
+      "explanation": "Each Fibonacci number is the sum of the two numbers before it. Two variables track the previous two terms as the loop advances.",
+      "path": "programs/08-fibonacci-series/main.cpp"
+    },
+    {
+      "id": 9,
+      "slug": "09-prime-number-checker",
+      "title": "Prime Number Checker",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Loops",
+        "Conditions"
+      ],
+      "description": "Check whether a given number is prime.",
+      "code": "#include <iostream>\nusing namespace std;\n\nbool isPrime(int n) {\n    if (n < 2) return false;\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) return false;\n    }\n    return true;\n}\n\nint main() {\n    int n;\n    cout << \"Enter a number: \";\n    cin >> n;\n\n    if (isPrime(n))\n        cout << n << \" is a Prime Number.\" << endl;\n    else\n        cout << n << \" is not a Prime Number.\" << endl;\n\n    return 0;\n}",
+      "output": "Enter a number: 29\n29 is a Prime Number.",
+      "explanation": "A number is prime if no integer from 2 up to its square root divides it evenly. Checking only up to sqrt(n) keeps the loop efficient.",
+      "path": "programs/09-prime-number-checker/main.cpp"
+    },
+    {
+      "id": 10,
+      "slug": "10-prime-numbers-in-a-range",
+      "title": "Prime Numbers in a Range",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Loops",
+        "Functions"
+      ],
+      "description": "Print all prime numbers within a given range.",
+      "code": "#include <iostream>\nusing namespace std;\n\nbool isPrime(int n) {\n    if (n < 2) return false;\n    for (int i = 2; i * i <= n; i++)\n        if (n % i == 0) return false;\n    return true;\n}\n\nint main() {\n    int low, high;\n    cout << \"Enter range (low high): \";\n    cin >> low >> high;\n\n    cout << \"Prime numbers: \";\n    for (int i = low; i <= high; i++) {\n        if (isPrime(i)) cout << i << \" \";\n    }\n    cout << endl;\n    return 0;\n}",
+      "output": "Enter range (low high): 10 30\nPrime numbers: 11 13 17 19 23 29",
+      "explanation": "The isPrime helper from the previous project is reused inside a loop that scans every number in the requested range.",
+      "path": "programs/10-prime-numbers-in-a-range/main.cpp"
+    },
+    {
+      "id": 11,
+      "slug": "11-palindrome-number",
+      "title": "Palindrome Number",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Loops",
+        "Operators"
+      ],
+      "description": "Check whether a number reads the same forwards and backwards.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n, original, reversed = 0;\n    cout << \"Enter a number: \";\n    cin >> n;\n    original = n;\n\n    while (n != 0) {\n        int digit = n % 10;\n        reversed = reversed * 10 + digit;\n        n /= 10;\n    }\n\n    if (original == reversed)\n        cout << original << \" is a Palindrome.\" << endl;\n    else\n        cout << original << \" is not a Palindrome.\" << endl;\n\n    return 0;\n}",
+      "output": "Enter a number: 12321\n12321 is a Palindrome.",
+      "explanation": "The digits of the number are peeled off one at a time with % 10 and rebuilt in reverse order, then compared to the original.",
+      "path": "programs/11-palindrome-number/main.cpp"
+    },
+    {
+      "id": 12,
+      "slug": "12-armstrong-number",
+      "title": "Armstrong Number",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Loops",
+        "Math"
+      ],
+      "description": "Check whether a number is an Armstrong number (sum of its own digits, each raised to the power of the digit count, equals the number).",
+      "code": "#include <iostream>\n#include <cmath>\nusing namespace std;\n\nint main() {\n    int n, original, sum = 0, digits = 0;\n    cout << \"Enter a number: \";\n    cin >> n;\n    original = n;\n\n    int temp = n;\n    while (temp != 0) { digits++; temp /= 10; }\n\n    temp = n;\n    while (temp != 0) {\n        int digit = temp % 10;\n        sum += (int)pow(digit, digits);\n        temp /= 10;\n    }\n\n    if (sum == original)\n        cout << original << \" is an Armstrong number.\" << endl;\n    else\n        cout << original << \" is not an Armstrong number.\" << endl;\n\n    return 0;\n}",
+      "output": "Enter a number: 153\n153 is an Armstrong number.",
+      "explanation": "First the digit count is found, then each digit is raised to that power and summed. If the sum equals the original number, it is an Armstrong number.",
+      "path": "programs/12-armstrong-number/main.cpp"
+    },
+    {
+      "id": 13,
+      "slug": "13-reverse-a-number",
+      "title": "Reverse a Number",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Loops",
+        "Operators"
+      ],
+      "description": "Reverse the digits of an integer.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    long long n, reversed = 0;\n    cout << \"Enter a number: \";\n    cin >> n;\n\n    bool negative = n < 0;\n    if (negative) n = -n;\n\n    while (n != 0) {\n        reversed = reversed * 10 + n % 10;\n        n /= 10;\n    }\n\n    if (negative) reversed = -reversed;\n    cout << \"Reversed number: \" << reversed << endl;\n    return 0;\n}",
+      "output": "Enter a number: 48293\nReversed number: 39284",
+      "explanation": "This is the same digit-extraction technique used in the palindrome checker, applied here purely to build and display the reversed value.",
+      "path": "programs/13-reverse-a-number/main.cpp"
+    },
+    {
+      "id": 14,
+      "slug": "14-sum-of-digits",
+      "title": "Sum of Digits",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Loops"
+      ],
+      "description": "Calculate the sum of the digits of a number.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    long long n;\n    cout << \"Enter a number: \";\n    cin >> n;\n    if (n < 0) n = -n;\n\n    int sum = 0;\n    while (n != 0) {\n        sum += n % 10;\n        n /= 10;\n    }\n\n    cout << \"Sum of digits: \" << sum << endl;\n    return 0;\n}",
+      "output": "Enter a number: 4829\nSum of digits: 23",
+      "explanation": "Each digit is extracted with % 10 and added to a running total, while / 10 removes that digit before the next iteration.",
+      "path": "programs/14-sum-of-digits/main.cpp"
+    },
+    {
+      "id": 15,
+      "slug": "15-number-guessing-game",
+      "title": "Number Guessing Game",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Loops",
+        "Random",
+        "Conditions"
+      ],
+      "description": "Guess a randomly generated number within a limited number of attempts.",
+      "code": "#include <iostream>\n#include <cstdlib>\n#include <ctime>\nusing namespace std;\n\nint main() {\n    srand((unsigned)time(0));\n    int target = rand() % 100 + 1;\n    int guess, attempts = 0;\n    const int maxAttempts = 7;\n\n    cout << \"Guess the number between 1 and 100!\" << endl;\n\n    do {\n        cout << \"Attempt \" << (attempts + 1) << \"/\" << maxAttempts << \": \";\n        cin >> guess;\n        attempts++;\n\n        if (guess > target) cout << \"Too high!\" << endl;\n        else if (guess < target) cout << \"Too low!\" << endl;\n        else { cout << \"Correct! You guessed it in \" << attempts << \" attempts.\" << endl; break; }\n\n    } while (attempts < maxAttempts);\n\n    if (guess != target)\n        cout << \"Out of attempts! The number was \" << target << \".\" << endl;\n\n    return 0;\n}",
+      "output": "Guess the number between 1 and 100!\nAttempt 1/7: 50\nToo low!\nAttempt 2/7: 75\nCorrect! You guessed it in 2 attempts.",
+      "explanation": "rand() % 100 + 1 generates a pseudo-random target. A do-while loop keeps prompting until the guess matches or attempts run out.",
+      "path": "programs/15-number-guessing-game/main.cpp"
+    },
+    {
+      "id": 16,
+      "slug": "16-rock-paper-scissors",
+      "title": "Rock Paper Scissors",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Random",
+        "Conditions"
+      ],
+      "description": "Play Rock, Paper, Scissors against the computer.",
+      "code": "#include <iostream>\n#include <cstdlib>\n#include <ctime>\n#include <string>\nusing namespace std;\n\nint main() {\n    srand((unsigned)time(0));\n    string choices[3] = {\"Rock\", \"Paper\", \"Scissors\"};\n\n    int userChoice;\n    cout << \"0-Rock  1-Paper  2-Scissors\" << endl;\n    cout << \"Enter your choice: \";\n    cin >> userChoice;\n\n    int compChoice = rand() % 3;\n    cout << \"Computer chose: \" << choices[compChoice] << endl;\n\n    if (userChoice == compChoice) {\n        cout << \"It's a tie!\" << endl;\n    } else if ((userChoice == 0 && compChoice == 2) ||\n               (userChoice == 1 && compChoice == 0) ||\n               (userChoice == 2 && compChoice == 1)) {\n        cout << \"You win!\" << endl;\n    } else {\n        cout << \"Computer wins!\" << endl;\n    }\n    return 0;\n}",
+      "output": "0-Rock  1-Paper  2-Scissors\nEnter your choice: 0\nComputer chose: Scissors\nYou win!",
+      "explanation": "Choices are encoded as 0, 1, 2. The three winning combinations for the user are checked explicitly against the computer's random pick.",
+      "path": "programs/16-rock-paper-scissors/main.cpp"
+    },
+    {
+      "id": 17,
+      "slug": "17-simple-quiz-game",
+      "title": "Simple Quiz Game",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Arrays",
+        "Loops"
+      ],
+      "description": "A short multiple-question quiz that scores the player at the end.",
+      "code": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint main() {\n    string questions[3] = {\n        \"What is the capital of France? \",\n        \"5 + 7 = ? \",\n        \"Which language is this program written in? \"\n    };\n    string answers[3] = {\"paris\", \"12\", \"c++\"};\n    int score = 0;\n\n    for (int i = 0; i < 3; i++) {\n        string userAnswer;\n        cout << questions[i];\n        cin >> userAnswer;\n\n        for (auto &c : userAnswer) c = tolower(c);\n        if (userAnswer == answers[i]) {\n            cout << \"Correct!\" << endl;\n            score++;\n        } else {\n            cout << \"Wrong! Correct answer: \" << answers[i] << endl;\n        }\n    }\n\n    cout << \"You scored \" << score << \" out of 3.\" << endl;\n    return 0;\n}",
+      "output": "What is the capital of France? Paris\nCorrect!\n5 + 7 = ? 12\nCorrect!\nWhich language is this program written in? Python\nWrong! Correct answer: c++\nYou scored 2 out of 3.",
+      "explanation": "Answers are normalised to lowercase before comparison so the check is not case sensitive, and a running score tracks correct responses.",
+      "path": "programs/17-simple-quiz-game/main.cpp"
+    },
+    {
+      "id": 18,
+      "slug": "18-student-grade-calculator",
+      "title": "Student Grade Calculator",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Arrays",
+        "Conditions"
+      ],
+      "description": "Calculate a student's average marks and assign a letter grade.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    const int subjects = 5;\n    double marks[subjects];\n    double total = 0;\n\n    for (int i = 0; i < subjects; i++) {\n        cout << \"Enter marks for subject \" << (i + 1) << \": \";\n        cin >> marks[i];\n        total += marks[i];\n    }\n\n    double average = total / subjects;\n    char grade;\n\n    if (average >= 90) grade = 'A';\n    else if (average >= 75) grade = 'B';\n    else if (average >= 60) grade = 'C';\n    else if (average >= 40) grade = 'D';\n    else grade = 'F';\n\n    cout << \"Average: \" << average << endl;\n    cout << \"Grade: \" << grade << endl;\n    return 0;\n}",
+      "output": "Enter marks for subject 1: 88\n... \nAverage: 79.4\nGrade: B",
+      "explanation": "Marks for each subject are stored in an array, summed, and averaged. The average is then mapped to a letter grade using a chain of conditions.",
+      "path": "programs/18-student-grade-calculator/main.cpp"
+    },
+    {
+      "id": 19,
+      "slug": "19-student-management-system",
+      "title": "Student Management System",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Structs",
+        "Vectors",
+        "OOP"
+      ],
+      "description": "Add, view and search student records using a struct and a vector.",
+      "code": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nstruct Student {\n    int roll;\n    string name;\n    double marks;\n};\n\nvoid addStudent(vector<Student> &list) {\n    Student s;\n    cout << \"Roll number: \"; cin >> s.roll;\n    cout << \"Name: \"; cin >> s.name;\n    cout << \"Marks: \"; cin >> s.marks;\n    list.push_back(s);\n    cout << \"Student added successfully!\" << endl;\n}\n\nvoid viewStudents(const vector<Student> &list) {\n    if (list.empty()) { cout << \"No records found.\" << endl; return; }\n    for (const auto &s : list) {\n        cout << \"Roll: \" << s.roll << \" | Name: \" << s.name << \" | Marks: \" << s.marks << endl;\n    }\n}\n\nint main() {\n    vector<Student> students;\n    int choice;\n\n    do {\n        cout << \"\\n1. Add Student  2. View Students  3. Exit\\nChoice: \";\n        cin >> choice;\n        if (choice == 1) addStudent(students);\n        else if (choice == 2) viewStudents(students);\n    } while (choice != 3);\n\n    return 0;\n}",
+      "output": "1. Add Student  2. View Students  3. Exit\nChoice: 1\nRoll number: 12\nName: Riya\nMarks: 91\nStudent added successfully!",
+      "explanation": "A struct groups related fields for one student, and a vector holds a dynamic list of them. Functions keep the menu logic and data handling separate.",
+      "path": "programs/19-student-management-system/main.cpp"
+    },
+    {
+      "id": 20,
+      "slug": "20-bank-account-management",
+      "title": "Bank Account Management",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Classes",
+        "OOP"
+      ],
+      "description": "Simulate deposit, withdrawal and balance inquiry using a class.",
+      "code": "#include <iostream>\nusing namespace std;\n\nclass BankAccount {\nprivate:\n    string owner;\n    double balance;\n\npublic:\n    BankAccount(string name, double initial) : owner(name), balance(initial) {}\n\n    void deposit(double amount) {\n        balance += amount;\n        cout << \"Deposited \" << amount << \". New balance: \" << balance << endl;\n    }\n\n    void withdraw(double amount) {\n        if (amount > balance) {\n            cout << \"Insufficient funds!\" << endl;\n        } else {\n            balance -= amount;\n            cout << \"Withdrew \" << amount << \". New balance: \" << balance << endl;\n        }\n    }\n\n    void showBalance() const {\n        cout << owner << \"'s balance: \" << balance << endl;\n    }\n};\n\nint main() {\n    BankAccount acc(\"Arjun\", 5000);\n    int choice;\n    double amount;\n\n    do {\n        cout << \"\\n1. Deposit 2. Withdraw 3. Balance 4. Exit\\nChoice: \";\n        cin >> choice;\n        switch (choice) {\n            case 1: cout << \"Amount: \"; cin >> amount; acc.deposit(amount); break;\n            case 2: cout << \"Amount: \"; cin >> amount; acc.withdraw(amount); break;\n            case 3: acc.showBalance(); break;\n        }\n    } while (choice != 4);\n\n    return 0;\n}",
+      "output": "1. Deposit 2. Withdraw 3. Balance 4. Exit\nChoice: 3\nArjun's balance: 5000",
+      "explanation": "The class encapsulates the owner and balance as private data, exposing only deposit, withdraw and showBalance as the public interface.",
+      "path": "programs/20-bank-account-management/main.cpp"
+    },
+    {
+      "id": 21,
+      "slug": "21-contact-management-system",
+      "title": "Contact Management System",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Structs",
+        "Vectors",
+        "Search"
+      ],
+      "description": "Store contacts and search for one by name.",
+      "code": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nstruct Contact { string name, phone; };\n\nint main() {\n    vector<Contact> contacts;\n    int choice;\n\n    do {\n        cout << \"\\n1. Add 2. Search 3. List All 4. Exit\\nChoice: \";\n        cin >> choice;\n\n        if (choice == 1) {\n            Contact c;\n            cout << \"Name: \"; cin >> c.name;\n            cout << \"Phone: \"; cin >> c.phone;\n            contacts.push_back(c);\n        } else if (choice == 2) {\n            string query;\n            cout << \"Search name: \"; cin >> query;\n            auto it = find_if(contacts.begin(), contacts.end(),\n                [&](const Contact &c) { return c.name == query; });\n            if (it != contacts.end())\n                cout << it->name << \" -> \" << it->phone << endl;\n            else\n                cout << \"Contact not found.\" << endl;\n        } else if (choice == 3) {\n            for (auto &c : contacts) cout << c.name << \" -> \" << c.phone << endl;\n        }\n    } while (choice != 4);\n\n    return 0;\n}",
+      "output": "1. Add 2. Search 3. List All 4. Exit\nChoice: 2\nSearch name: Meera\nMeera -> 9876543210",
+      "explanation": "Contacts are stored as structs inside a vector. std::find_if scans the vector with a lambda predicate to locate a contact by name.",
+      "path": "programs/21-contact-management-system/main.cpp"
+    },
+    {
+      "id": 22,
+      "slug": "22-library-management-system",
+      "title": "Library Management System",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Classes",
+        "Vectors",
+        "OOP"
+      ],
+      "description": "Issue and return books while tracking availability.",
+      "code": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nclass Book {\npublic:\n    string title;\n    bool issued;\n    Book(string t) : title(t), issued(false) {}\n};\n\nint main() {\n    vector<Book> books = { Book(\"C++ Primer\"), Book(\"Data Structures\"), Book(\"Algorithms\") };\n    int choice, index;\n\n    do {\n        cout << \"\\nLibrary Books:\\n\";\n        for (size_t i = 0; i < books.size(); i++)\n            cout << i + 1 << \". \" << books[i].title\n                 << (books[i].issued ? \" [Issued]\" : \" [Available]\") << endl;\n\n        cout << \"1. Issue 2. Return 3. Exit\\nChoice: \";\n        cin >> choice;\n        if (choice == 1 || choice == 2) {\n            cout << \"Book number: \"; cin >> index;\n            index--;\n            if (index < 0 || index >= (int)books.size()) { cout << \"Invalid book.\\n\"; continue; }\n            if (choice == 1) {\n                if (books[index].issued) cout << \"Already issued!\\n\";\n                else { books[index].issued = true; cout << \"Book issued.\\n\"; }\n            } else {\n                books[index].issued = false;\n                cout << \"Book returned.\\n\";\n            }\n        }\n    } while (choice != 3);\n\n    return 0;\n}",
+      "output": "Library Books:\n1. C++ Primer [Available]\n2. Data Structures [Available]\n3. Algorithms [Available]\n1. Issue 2. Return 3. Exit\nChoice: 1\nBook number: 1\nBook issued.",
+      "explanation": "Each Book object tracks its own issued flag. The menu loop lets the user toggle that flag for a chosen book by index.",
+      "path": "programs/22-library-management-system/main.cpp"
+    },
+    {
+      "id": 23,
+      "slug": "23-atm-simulation",
+      "title": "ATM Simulation",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Classes",
+        "Loops",
+        "Conditions"
+      ],
+      "description": "Simulate a PIN-protected ATM with deposit, withdrawal and balance checks.",
+      "code": "#include <iostream>\nusing namespace std;\n\nclass ATM {\n    int pin;\n    double balance;\npublic:\n    ATM(int p, double b) : pin(p), balance(b) {}\n\n    bool authenticate(int enteredPin) { return enteredPin == pin; }\n\n    void menu() {\n        int choice;\n        double amount;\n        do {\n            cout << \"\\n1. Balance 2. Deposit 3. Withdraw 4. Exit\\nChoice: \";\n            cin >> choice;\n            switch (choice) {\n                case 1: cout << \"Balance: \" << balance << endl; break;\n                case 2: cout << \"Amount: \"; cin >> amount; balance += amount; cout << \"Deposited.\\n\"; break;\n                case 3:\n                    cout << \"Amount: \"; cin >> amount;\n                    if (amount > balance) cout << \"Insufficient funds!\\n\";\n                    else { balance -= amount; cout << \"Please collect cash.\\n\"; }\n                    break;\n            }\n        } while (choice != 4);\n    }\n};\n\nint main() {\n    ATM atm(1234, 10000);\n    int pin, attempts = 0;\n\n    while (attempts < 3) {\n        cout << \"Enter PIN: \";\n        cin >> pin;\n        if (atm.authenticate(pin)) { atm.menu(); break; }\n        cout << \"Incorrect PIN!\\n\";\n        attempts++;\n    }\n    if (attempts == 3) cout << \"Card blocked.\\n\";\n\n    return 0;\n}",
+      "output": "Enter PIN: 1234\n1. Balance 2. Deposit 3. Withdraw 4. Exit\nChoice: 1\nBalance: 10000",
+      "explanation": "The ATM class hides the PIN and balance as private members. authenticate() checks the PIN before menu() is allowed to run.",
+      "path": "programs/23-atm-simulation/main.cpp"
+    },
+    {
+      "id": 24,
+      "slug": "24-employee-management-system",
+      "title": "Employee Management System",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Structs",
+        "Vectors",
+        "File-like logic"
+      ],
+      "description": "Manage employee records including salary calculations.",
+      "code": "#include <iostream>\n#include <vector>\n#include <string>\n#include <iomanip>\nusing namespace std;\n\nstruct Employee { string name; double basicSalary; };\n\ndouble calculateNetSalary(double basic) {\n    double hra = basic * 0.20;\n    double tax = basic * 0.10;\n    return basic + hra - tax;\n}\n\nint main() {\n    vector<Employee> employees;\n    int n;\n    cout << \"Number of employees: \";\n    cin >> n;\n\n    for (int i = 0; i < n; i++) {\n        Employee e;\n        cout << \"Name: \"; cin >> e.name;\n        cout << \"Basic salary: \"; cin >> e.basicSalary;\n        employees.push_back(e);\n    }\n\n    cout << fixed << setprecision(2);\n    for (auto &e : employees) {\n        cout << e.name << \" -> Net Salary: \" << calculateNetSalary(e.basicSalary) << endl;\n    }\n    return 0;\n}",
+      "output": "Number of employees: 1\nName: Sanjana\nBasic salary: 40000\nSanjana -> Net Salary: 44000.00",
+      "explanation": "Net salary adds a 20% house rent allowance and deducts a 10% tax from the basic salary, demonstrating simple business-rule calculations.",
+      "path": "programs/24-employee-management-system/main.cpp"
+    },
+    {
+      "id": 25,
+      "slug": "25-expense-tracker",
+      "title": "Expense Tracker",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Vectors",
+        "Structs",
+        "Loops"
+      ],
+      "description": "Track daily expenses and view a category-wise total.",
+      "code": "#include <iostream>\n#include <vector>\n#include <string>\n#include <map>\nusing namespace std;\n\nstruct Expense { string category; double amount; };\n\nint main() {\n    vector<Expense> expenses;\n    int choice;\n\n    do {\n        cout << \"\\n1. Add Expense 2. View Summary 3. Exit\\nChoice: \";\n        cin >> choice;\n\n        if (choice == 1) {\n            Expense e;\n            cout << \"Category: \"; cin >> e.category;\n            cout << \"Amount: \"; cin >> e.amount;\n            expenses.push_back(e);\n        } else if (choice == 2) {\n            map<string, double> totals;\n            for (auto &e : expenses) totals[e.category] += e.amount;\n            double grandTotal = 0;\n            for (auto &t : totals) {\n                cout << t.first << \": \" << t.second << endl;\n                grandTotal += t.second;\n            }\n            cout << \"Total spent: \" << grandTotal << endl;\n        }\n    } while (choice != 3);\n\n    return 0;\n}",
+      "output": "1. Add Expense 2. View Summary 3. Exit\nChoice: 2\nFood: 1200\nTravel: 500\nTotal spent: 1700",
+      "explanation": "A std::map groups expenses by category automatically, since map keys are kept sorted and each new amount is added to that category's running total.",
+      "path": "programs/25-expense-tracker/main.cpp"
+    },
+    {
+      "id": 26,
+      "slug": "26-to-do-list",
+      "title": "To-Do List",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Vectors",
+        "Structs"
+      ],
+      "description": "Add, complete and remove tasks from a simple to-do list.",
+      "code": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nstruct Task { string description; bool done; };\n\nint main() {\n    vector<Task> tasks;\n    int choice, index;\n\n    do {\n        cout << \"\\n--- To-Do List ---\\n\";\n        for (size_t i = 0; i < tasks.size(); i++)\n            cout << i + 1 << \". [\" << (tasks[i].done ? \"x\" : \" \") << \"] \" << tasks[i].description << endl;\n\n        cout << \"\\n1. Add 2. Mark Done 3. Remove 4. Exit\\nChoice: \";\n        cin >> choice;\n\n        if (choice == 1) {\n            cin.ignore();\n            Task t; t.done = false;\n            cout << \"Task: \"; getline(cin, t.description);\n            tasks.push_back(t);\n        } else if (choice == 2) {\n            cout << \"Task number: \"; cin >> index;\n            if (index >= 1 && index <= (int)tasks.size()) tasks[index - 1].done = true;\n        } else if (choice == 3) {\n            cout << \"Task number: \"; cin >> index;\n            if (index >= 1 && index <= (int)tasks.size()) tasks.erase(tasks.begin() + index - 1);\n        }\n    } while (choice != 4);\n\n    return 0;\n}",
+      "output": "--- To-Do List ---\n1. [ ] Finish DS assignment\n\n1. Add 2. Mark Done 3. Remove 4. Exit\nChoice: 2\nTask number: 1",
+      "explanation": "Each Task struct stores its text and a done flag. vector::erase removes a task by its position when the user chooses to delete it.",
+      "path": "programs/26-to-do-list/main.cpp"
+    },
+    {
+      "id": 27,
+      "slug": "27-digital-clock",
+      "title": "Digital Clock",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Time library",
+        "Loops"
+      ],
+      "description": "Display the current system time, updating every second.",
+      "code": "#include <iostream>\n#include <ctime>\n#include <thread>\n#include <chrono>\nusing namespace std;\n\nint main() {\n    cout << \"Digital Clock (Ctrl+C to stop)\" << endl;\n    for (int i = 0; i < 5; i++) {\n        time_t now = time(0);\n        tm *ltm = localtime(&now);\n        cout << \"\\r\" << (1900 + ltm->tm_year) << \"-\"\n             << (1 + ltm->tm_mon) << \"-\" << ltm->tm_mday << \"  \"\n             << ltm->tm_hour << \":\" << ltm->tm_min << \":\" << ltm->tm_sec << \"   \" << flush;\n        this_thread::sleep_for(chrono::seconds(1));\n    }\n    cout << endl;\n    return 0;\n}",
+      "output": "Digital Clock (Ctrl+C to stop)\n2026-9-11  14:22:35",
+      "explanation": "time() and localtime() read the system clock into a tm struct. The loop reprints the time every second using \\r to overwrite the same line.",
+      "path": "programs/27-digital-clock/main.cpp"
+    },
+    {
+      "id": 28,
+      "slug": "28-unit-converter",
+      "title": "Unit Converter",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Functions",
+        "Conditions"
+      ],
+      "description": "Convert between common units such as kilometers/miles and kilograms/pounds.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int choice;\n    double value;\n\n    cout << \"1. KM to Miles\\n2. Miles to KM\\n3. KG to Pounds\\n4. Pounds to KG\\nChoice: \";\n    cin >> choice;\n    cout << \"Enter value: \";\n    cin >> value;\n\n    double result;\n    switch (choice) {\n        case 1: result = value * 0.621371; cout << result << \" miles\" << endl; break;\n        case 2: result = value / 0.621371; cout << result << \" km\" << endl; break;\n        case 3: result = value * 2.20462; cout << result << \" lb\" << endl; break;\n        case 4: result = value / 2.20462; cout << result << \" kg\" << endl; break;\n        default: cout << \"Invalid choice.\" << endl;\n    }\n    return 0;\n}",
+      "output": "1. KM to Miles\n2. Miles to KM\n3. KG to Pounds\n4. Pounds to KG\nChoice: 1\nEnter value: 10\n6.21371 miles",
+      "explanation": "Each conversion is a fixed multiplication or division factor selected through a switch statement based on the user's menu choice.",
+      "path": "programs/28-unit-converter/main.cpp"
+    },
+    {
+      "id": 29,
+      "slug": "29-temperature-converter",
+      "title": "Temperature Converter",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Functions",
+        "Conditions"
+      ],
+      "description": "Convert temperatures between Celsius, Fahrenheit and Kelvin.",
+      "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    double c, f, k;\n    cout << \"Enter temperature in Celsius: \";\n    cin >> c;\n\n    f = (c * 9.0 / 5.0) + 32;\n    k = c + 273.15;\n\n    cout << c << \" C = \" << f << \" F\" << endl;\n    cout << c << \" C = \" << k << \" K\" << endl;\n    return 0;\n}",
+      "output": "Enter temperature in Celsius: 25\n25 C = 77 F\n25 C = 298.15 K",
+      "explanation": "Fahrenheit and Kelvin are both computed directly from the standard conversion formulas relative to Celsius.",
+      "path": "programs/29-temperature-converter/main.cpp"
+    },
+    {
+      "id": 30,
+      "slug": "30-currency-converter",
+      "title": "Currency Converter",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Functions",
+        "Maps"
+      ],
+      "description": "Convert an amount from one currency to another using fixed exchange rates.",
+      "code": "#include <iostream>\n#include <map>\n#include <string>\nusing namespace std;\n\nint main() {\n    map<string, double> rateToUSD = {\n        {\"USD\", 1.0}, {\"INR\", 0.012}, {\"EUR\", 1.09}, {\"GBP\", 1.27}\n    };\n\n    string from, to;\n    double amount;\n\n    cout << \"From currency (USD/INR/EUR/GBP): \"; cin >> from;\n    cout << \"To currency (USD/INR/EUR/GBP): \"; cin >> to;\n    cout << \"Amount: \"; cin >> amount;\n\n    if (rateToUSD.count(from) && rateToUSD.count(to)) {\n        double usd = amount * rateToUSD[from];\n        double result = usd / rateToUSD[to];\n        cout << amount << \" \" << from << \" = \" << result << \" \" << to << endl;\n    } else {\n        cout << \"Unsupported currency.\" << endl;\n    }\n    return 0;\n}",
+      "output": "From currency (USD/INR/EUR/GBP): INR\nTo currency (USD/INR/EUR/GBP): USD\nAmount: 1000\n1000 INR = 12 USD",
+      "explanation": "Every currency is first converted to a common base (USD), then from USD to the target currency, avoiding the need for a rate between every possible pair.",
+      "path": "programs/30-currency-converter/main.cpp"
+    },
+    {
+      "id": 31,
+      "slug": "31-tic-tac-toe",
+      "title": "Tic Tac Toe",
+      "difficulty": "Advanced",
+      "concepts": [
+        "2D Arrays",
+        "Functions",
+        "Loops"
+      ],
+      "description": "A two-player Tic Tac Toe game played on the console.",
+      "code": "#include <iostream>\nusing namespace std;\n\nchar board[3][3] = {{'1','2','3'}, {'4','5','6'}, {'7','8','9'}};\n\nvoid printBoard() {\n    for (int i = 0; i < 3; i++) {\n        cout << \" \" << board[i][0] << \" | \" << board[i][1] << \" | \" << board[i][2] << endl;\n        if (i < 2) cout << \"---|---|---\" << endl;\n    }\n}\n\nbool checkWin(char player) {\n    for (int i = 0; i < 3; i++)\n        if ((board[i][0] == player && board[i][1] == player && board[i][2] == player) ||\n            (board[0][i] == player && board[1][i] == player && board[2][i] == player))\n            return true;\n    if (board[0][0] == player && board[1][1] == player && board[2][2] == player) return true;\n    if (board[0][2] == player && board[1][1] == player && board[2][0] == player) return true;\n    return false;\n}\n\nint main() {\n    char currentPlayer = 'X';\n    int move;\n\n    for (int turn = 0; turn < 9; turn++) {\n        printBoard();\n        cout << \"Player \" << currentPlayer << \", enter cell (1-9): \";\n        cin >> move;\n        int row = (move - 1) / 3, col = (move - 1) % 3;\n\n        if (move < 1 || move > 9 || board[row][col] == 'X' || board[row][col] == 'O') {\n            cout << \"Invalid move, try again.\" << endl;\n            turn--;\n            continue;\n        }\n\n        board[row][col] = currentPlayer;\n        if (checkWin(currentPlayer)) {\n            printBoard();\n            cout << \"Player \" << currentPlayer << \" wins!\" << endl;\n            return 0;\n        }\n        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';\n    }\n\n    printBoard();\n    cout << \"It's a draw!\" << endl;\n    return 0;\n}",
+      "output": " 1 | 2 | 3\n---|---|---\n 4 | 5 | 6\n---|---|---\n 7 | 8 | 9\nPlayer X, enter cell (1-9): 5\n...\nPlayer X wins!",
+      "explanation": "The board is a 2D char array. checkWin scans every row, column and both diagonals for three matching symbols after each move.",
+      "path": "programs/31-tic-tac-toe/main.cpp"
+    },
+    {
+      "id": 32,
+      "slug": "32-hangman-game",
+      "title": "Hangman Game",
+      "difficulty": "Advanced",
+      "concepts": [
+        "Strings",
+        "Loops",
+        "Sets"
+      ],
+      "description": "Guess the hidden word letter by letter before running out of attempts.",
+      "code": "#include <iostream>\n#include <string>\n#include <set>\nusing namespace std;\n\nint main() {\n    string word = \"polytechnic\";\n    set<char> guessed;\n    int attemptsLeft = 6;\n\n    while (attemptsLeft > 0) {\n        string display = \"\";\n        bool complete = true;\n        for (char c : word) {\n            if (guessed.count(c)) display += c;\n            else { display += '_'; complete = false; }\n        }\n\n        cout << \"Word: \" << display << \"   Attempts left: \" << attemptsLeft << endl;\n        if (complete) { cout << \"You win! The word was \" << word << endl; break; }\n\n        cout << \"Guess a letter: \";\n        char letter;\n        cin >> letter;\n        guessed.insert(letter);\n\n        if (word.find(letter) == string::npos) {\n            attemptsLeft--;\n            cout << \"Wrong guess!\" << endl;\n        }\n    }\n\n    if (attemptsLeft == 0) cout << \"You lost! The word was \" << word << endl;\n    return 0;\n}",
+      "output": "Word: ___________   Attempts left: 6\nGuess a letter: p\nWord: p__________   Attempts left: 6",
+      "explanation": "A std::set stores guessed letters without duplicates. The hidden word is redrawn each round, revealing any letter that has already been guessed correctly.",
+      "path": "programs/32-hangman-game/main.cpp"
+    },
+    {
+      "id": 33,
+      "slug": "33-inventory-management-system",
+      "title": "Inventory Management System",
+      "difficulty": "Advanced",
+      "concepts": [
+        "Structs",
+        "Vectors",
+        "Search"
+      ],
+      "description": "Track stock items, quantities and restock alerts.",
+      "code": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nstruct Item { string name; int quantity; double price; };\n\nint main() {\n    vector<Item> inventory;\n    int choice;\n\n    do {\n        cout << \"\\n1. Add Item 2. Sell Item 3. View Inventory 4. Exit\\nChoice: \";\n        cin >> choice;\n\n        if (choice == 1) {\n            Item it;\n            cout << \"Name: \"; cin >> it.name;\n            cout << \"Quantity: \"; cin >> it.quantity;\n            cout << \"Price: \"; cin >> it.price;\n            inventory.push_back(it);\n        } else if (choice == 2) {\n            string name; int qty;\n            cout << \"Item name: \"; cin >> name;\n            cout << \"Quantity sold: \"; cin >> qty;\n            bool found = false;\n            for (auto &it : inventory) {\n                if (it.name == name) {\n                    found = true;\n                    if (qty > it.quantity) cout << \"Not enough stock!\\n\";\n                    else it.quantity -= qty;\n                }\n            }\n            if (!found) cout << \"Item not found.\\n\";\n        } else if (choice == 3) {\n            for (auto &it : inventory) {\n                cout << it.name << \" | Qty: \" << it.quantity << \" | Price: \" << it.price;\n                if (it.quantity < 5) cout << \"  [LOW STOCK]\";\n                cout << endl;\n            }\n        }\n    } while (choice != 4);\n\n    return 0;\n}",
+      "output": "1. Add Item 2. Sell Item 3. View Inventory 4. Exit\nChoice: 3\nKeyboard | Qty: 3 | Price: 799  [LOW STOCK]",
+      "explanation": "Selling an item reduces its quantity after checking enough stock exists. The inventory view flags any item under 5 units as low stock.",
+      "path": "programs/33-inventory-management-system/main.cpp"
+    },
+    {
+      "id": 34,
+      "slug": "34-file-handling-notes-manager",
+      "title": "File Handling Notes Manager",
+      "difficulty": "Advanced",
+      "concepts": [
+        "File Handling",
+        "Streams"
+      ],
+      "description": "Save and read text notes from a file using fstream.",
+      "code": "#include <iostream>\n#include <fstream>\n#include <string>\nusing namespace std;\n\nint main() {\n    int choice;\n    cout << \"1. Add Note 2. View Notes\\nChoice: \";\n    cin >> choice;\n\n    if (choice == 1) {\n        ofstream file(\"notes.txt\", ios::app);\n        cin.ignore();\n        string note;\n        cout << \"Enter note: \";\n        getline(cin, note);\n        file << note << endl;\n        file.close();\n        cout << \"Note saved!\" << endl;\n    } else if (choice == 2) {\n        ifstream file(\"notes.txt\");\n        string line;\n        int i = 1;\n        if (!file) { cout << \"No notes found.\" << endl; return 0; }\n        while (getline(file, line)) {\n            cout << i++ << \". \" << line << endl;\n        }\n        file.close();\n    }\n    return 0;\n}",
+      "output": "1. Add Note 2. View Notes\nChoice: 1\nEnter note: Submit DS assignment by Friday\nNote saved!",
+      "explanation": "ofstream with ios::app appends new notes to notes.txt without erasing existing ones. ifstream reads it back line by line with getline.",
+      "path": "programs/34-file-handling-notes-manager/main.cpp"
+    },
+    {
+      "id": 35,
+      "slug": "35-mini-banking-system",
+      "title": "Mini Banking System",
+      "difficulty": "Advanced",
+      "concepts": [
+        "OOP",
+        "Vectors",
+        "Classes"
+      ],
+      "description": "A multi-account banking system supporting account creation, deposits, withdrawals and transfers.",
+      "code": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nclass Account {\npublic:\n    int id;\n    string owner;\n    double balance;\n    Account(int i, string o, double b) : id(i), owner(o), balance(b) {}\n};\n\nvector<Account> accounts;\nint nextId = 1001;\n\nAccount* findAccount(int id) {\n    for (auto &a : accounts) if (a.id == id) return &a;\n    return nullptr;\n}\n\nint main() {\n    int choice;\n    do {\n        cout << \"\\n1. Open Account 2. Deposit 3. Withdraw 4. Transfer 5. View All 6. Exit\\nChoice: \";\n        cin >> choice;\n\n        if (choice == 1) {\n            string name; double initial;\n            cout << \"Owner name: \"; cin >> name;\n            cout << \"Initial deposit: \"; cin >> initial;\n            accounts.push_back(Account(nextId, name, initial));\n            cout << \"Account created with ID \" << nextId++ << endl;\n        } else if (choice == 2 || choice == 3) {\n            int id; double amt;\n            cout << \"Account ID: \"; cin >> id;\n            cout << \"Amount: \"; cin >> amt;\n            Account* a = findAccount(id);\n            if (!a) { cout << \"Account not found.\\n\"; continue; }\n            if (choice == 2) { a->balance += amt; cout << \"Deposited.\\n\"; }\n            else {\n                if (amt > a->balance) cout << \"Insufficient funds!\\n\";\n                else { a->balance -= amt; cout << \"Withdrawn.\\n\"; }\n            }\n        } else if (choice == 4) {\n            int fromId, toId; double amt;\n            cout << \"From ID: \"; cin >> fromId;\n            cout << \"To ID: \"; cin >> toId;\n            cout << \"Amount: \"; cin >> amt;\n            Account* from = findAccount(fromId);\n            Account* to = findAccount(toId);\n            if (!from || !to) cout << \"Invalid account(s).\\n\";\n            else if (amt > from->balance) cout << \"Insufficient funds!\\n\";\n            else { from->balance -= amt; to->balance += amt; cout << \"Transfer complete.\\n\"; }\n        } else if (choice == 5) {\n            for (auto &a : accounts)\n                cout << a.id << \" | \" << a.owner << \" | Balance: \" << a.balance << endl;\n        }\n    } while (choice != 6);\n\n    return 0;\n}",
+      "output": "1. Open Account 2. Deposit 3. Withdraw 4. Transfer 5. View All 6. Exit\nChoice: 1\nOwner name: Kabir\nInitial deposit: 2000\nAccount created with ID 1001",
+      "explanation": "Accounts live in a vector and are looked up by ID with a pointer-returning helper, which lets deposit, withdraw and transfer all share the same lookup logic.",
+      "path": "programs/35-mini-banking-system/main.cpp"
+    }
+  ]
+}
